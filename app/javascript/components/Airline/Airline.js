@@ -44,15 +44,35 @@ const Airline = (props) => {
 
   const handleChange = (event) => {
     event.preventDefault()
-    console.log('name:', event.target.name, 'value:', event.target.value)
+    setReview(Object.assign({}, review, {[event.target.name]: event.target.value}))
+
+    console.log('review:', review)
   }
   // handle changes to input fields
+  // alt method: {...review, [e.target.name]: e.value}
 
   const handleSubmit = (event) => {
     event.preventDefault()
 
+    const csrfToken = document.querySelector('[name=csrf-token]').content
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
+
+    const airline_id = airline.data.id
+    axios.post('/api/v1/reviews', {review, airline_id})
+      .then(resp => {
+        const included = [...airline.included, resp.data.data]
+        setAirline({...airline, included})
+        setReview({title: '', description: '', score: 0})
+      })
+      .catch(resp => {})
   }
-  // handle when form is submitted
+  // sumbit to api
+
+  const setRating = (score, event) => {
+    event.preventDefault()
+    
+    setReview({...review, score})
+  }
 
   return(
     <Wrapper>
@@ -72,6 +92,7 @@ const Airline = (props) => {
           <ReviewForm
             handleChange={handleChange}
             handleSubmit={handleSubmit}
+            setRating={setRating}
             attributes={airline.data.attributes}
             review={review}
           />
