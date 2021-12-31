@@ -114,7 +114,8 @@ const Error = styled.div`
 
 const ReviewForm = (props) => {
   const ratingOptions = [5,4,3,2,1].map( (score, index) => {
-    return (<Fragment>
+    return (
+    <Fragment>
       <input 
         type='radio' 
         value={score} 
