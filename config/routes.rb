@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :airlines, param: :slug
       resources :reviews, only: [:create, :destroy]
+      resources :education_modules, only: [:index, :create, :update]
     end
   end
 

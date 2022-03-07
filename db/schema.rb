@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_31_012024) do
+ActiveRecord::Schema.define(version: 2022_03_07_011142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2021_12_31_012024) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "education_modules", force: :cascade do |t|
+    t.integer "module_id"
+    t.integer "status", default: 0
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -31,6 +39,12 @@ ActiveRecord::Schema.define(version: 2021_12_31_012024) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["airline_id"], name: "index_reviews_on_airline_id"
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string "test"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "reviews", "airlines"
