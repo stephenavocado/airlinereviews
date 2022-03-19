@@ -1,0 +1,2 @@
+class PainJournal < ApplicationRecord
+end

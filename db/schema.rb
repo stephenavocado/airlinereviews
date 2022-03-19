@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_011142) do
+ActiveRecord::Schema.define(version: 2022_03_19_163218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(version: 2022_03_07_011142) do
     t.integer "module_id"
     t.integer "status", default: 0
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pain_journals", force: :cascade do |t|
+    t.integer "pain_score"
+    t.integer "user_id"
+    t.string "pain_setting"
+    t.string "pain_feeling"
+    t.string "who_with"
+    t.string "coping_strategies"
+    t.string "other_notes"
+    t.integer "pain_after_episode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :airlines, param: :slug
       resources :reviews, only: [:create, :destroy]
       resources :education_modules, only: [:index, :create, :update]
+      resources :pain_journals, only: [:index, :create, :update]
     end
   end
 
