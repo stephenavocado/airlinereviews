@@ -1,7 +1,7 @@
 module Api
   module V1
     class PainJournalsController < ApplicationController
-      protect_from_forgery with: :null_session
+      skip_before_action :verify_authenticity_token
 
       def index
         pain_journals = PainJournal.all
@@ -20,7 +20,7 @@ module Api
       end
 
       def update
-        pain_journal = PainJournal.find_by(params[:module_id])
+        pain_journal = PainJournal.find_by(params[:pain_journal_id])
 
         if pain_journal.update(pain_journal_params)
           render json: PainJournalSerializer.new(pain_journal).serializable_hash.to_json
