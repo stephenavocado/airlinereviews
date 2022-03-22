@@ -20,7 +20,7 @@ module Api
       end
 
       def update
-        pain_journal = PainJournal.find_by(params[:pain_journal_id])
+        pain_journal = PainJournal.find_by(id: params[:id])
 
         if pain_journal.update(pain_journal_params)
           render json: PainJournalSerializer.new(pain_journal).serializable_hash.to_json
