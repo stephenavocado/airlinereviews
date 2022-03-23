@@ -40,7 +40,7 @@ module Api
           :who_with, 
           :coping_strategies, 
           :other_notes, 
-          :pain_after_episode
+          :pain_after
         )
       end
 
