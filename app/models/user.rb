@@ -8,4 +8,5 @@ class User < ApplicationRecord
   #has_many  :smart_goals
 
   enum role: [:standard, :admin]
+  enum program_pace_goal: [:slow, :medium, :fast]
 end

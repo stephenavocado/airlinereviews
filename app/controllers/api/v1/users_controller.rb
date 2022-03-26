@@ -30,7 +30,7 @@ module Api
       end
       
       def user_params
-        params.require(:user).permit(:name, :role, :uid)
+        params.require(:user).permit(:name, :role, :uid, :program_pace_goal, :avg_pain_pre_start)
       end
     end
   end
