@@ -32,7 +32,9 @@ module Api
       private
 
       def pain_journal_params
-        params.require(:pain_journal).permit(
+        params.require(:pain_journal)
+        .transform_keys{ |key| key.to_s.underscore }
+        .permit(
           :user_id, 
           :pain_score, 
           :pain_setting, 

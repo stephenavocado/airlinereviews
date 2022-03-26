@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  role: 1
+  uid: MyString
+  smart_goals_count: 1
+  pain_journals_count: 1
+  mood_journals_count: 1
+  food_journals_count: 1
+  education_modules_count: 1
+  movement_modules_count: 1
+  bookmarks_count: 1
+
+two:
+  role: 1
+  uid: MyString
+  smart_goals_count: 1
+  pain_journals_count: 1
+  mood_journals_count: 1
+  food_journals_count: 1
+  education_modules_count: 1
+  movement_modules_count: 1
+  bookmarks_count: 1

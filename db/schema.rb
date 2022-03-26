@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_19_183834) do
+ActiveRecord::Schema.define(version: 2022_03_26_164515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,13 +37,13 @@ ActiveRecord::Schema.define(version: 2022_03_19_183834) do
     t.string "pain_setting"
     t.string "pain_feeling"
     t.string "who_with"
-    t.string "coping_strategies"
     t.string "other_notes"
     t.integer "pain_after_episode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "pain_after", default: [], array: true
     t.string "coping_array", default: [], array: true
+    t.integer "pain_after"
+    t.string "coping_strategies", default: [], array: true
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -60,6 +60,21 @@ ActiveRecord::Schema.define(version: 2022_03_19_183834) do
     t.string "test"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.integer "role", default: 0
+    t.string "uid"
+    t.integer "smart_goals_count"
+    t.integer "pain_journals_count"
+    t.integer "mood_journals_count"
+    t.integer "food_journals_count"
+    t.integer "education_modules_count"
+    t.integer "movement_modules_count"
+    t.integer "bookmarks_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   add_foreign_key "reviews", "airlines"
