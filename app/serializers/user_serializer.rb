@@ -1,6 +1,6 @@
 class UserSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :uid, :program_pace_goal, :avg_pain_pre_start, :role
+  attributes :name, :uid, :program_pace_goal, :role
 
   #has_many  :bookmarks
   has_many  :education_modules
