@@ -33,13 +33,13 @@ module Api
 
       def pain_journal_params
         params.require(:pain_journal)
-        .transform_keys{ |key| key.to_s.underscore }
+        #.transform_keys{ |key| key.to_s.underscore }
         .permit(
           :user_id, 
           :pain_score, 
           :pain_setting, 
           :pain_feeling, 
-          :who_with, 
+          :who_with,
           :coping_strategies, 
           :other_notes, 
           :pain_after
