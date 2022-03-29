@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :reviews, only: [:create, :destroy]
       resources :users, only: [:index, :create, :update, :destroy]
       resources :education_modules, only: [:index, :create, :update]
+      resources :food_journals, only: [:index, :create, :update]
       resources :pain_journals, only: [:index, :create, :update]
     end
   end
