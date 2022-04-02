@@ -33,8 +33,8 @@ module Api
 
       def food_journal_params
         params.require(:food_journal)
-        .transform_keys{ |key| key.to_s.underscore }
-        .permit(:user_id, :meal, :feeling_before, :feeling_after, :food)
+        #.transform_keys{ |key| key.to_s.underscore }
+        .permit(:user_id, :breakfast, :lunch, :dinner, :snacks)
       end
 
     end
