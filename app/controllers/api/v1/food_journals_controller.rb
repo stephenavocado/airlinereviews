@@ -4,7 +4,7 @@ module Api
       skip_before_action :verify_authenticity_token
 
       def index
-        food_journals = FoodJournal.all
+        food_journals = FoodJournal.all.order(:created_at).reverse
 
         render json: FoodJournalSerializer.new(food_journals).serializable_hash.to_json
       end

@@ -4,7 +4,7 @@ module Api
       skip_before_action :verify_authenticity_token
 
       def index
-        pain_journals = PainJournal.all
+        pain_journals = PainJournal.all.order(:created_at).reverse
 
         render json: PainJournalSerializer.new(pain_journals).serializable_hash.to_json
       end
