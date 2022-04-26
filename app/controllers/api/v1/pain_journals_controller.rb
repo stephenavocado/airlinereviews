@@ -29,6 +29,16 @@ module Api
         end
       end
 
+      def destroy
+        pain_journal = PainJournal.find_by(id: params[:id])
+
+        if pain_journal.destroy
+          head :no_content
+        else 
+          render json: { error: pain_journal.errors.messages }, status: 422
+        end
+      end
+
       private
 
       def pain_journal_params

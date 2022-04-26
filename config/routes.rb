@@ -8,7 +8,8 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :create, :update, :destroy]
       resources :education_modules, only: [:index, :create, :update]
       resources :food_journals, only: [:index, :create, :update]
-      resources :pain_journals, only: [:index, :create, :update]
+      resources :pain_journals, only: [:index, :create, :update, :destroy]
+      resources :mood_journals, only: [:index, :create, :update, :destroy]
     end
   end
 
