@@ -63,6 +63,7 @@ gem 'devise'
 gem 'faker'
 gem 'graphiti', '~> 1.2'
 gem 'pry-rails'
+gem "groupdate"
 gem 'pundit'
 gem 'rack-canonical-host'
 gem 'rollbar'

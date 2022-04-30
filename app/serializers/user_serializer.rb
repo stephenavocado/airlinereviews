@@ -9,4 +9,6 @@ class UserSerializer
   #has_many  :movement_modules
   has_many  :pain_journals
   #has_many  :smart_goals
+
+  #PainJournal.group_by_month(:created_at).average(:pain_score)
 end
